@@ -11,7 +11,7 @@ namespace DebtTrack.Application.Features.AuthFeatures.LoginFeatures
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly IPasswordHelper _passwordHelper;
-        private readonly string _papper = "v81IKJ3ZBFgwc2AdnYeOLhUn9muUtIQ0AJKgfewu*!(24uyjfebweuy";
+        private readonly string _papper = "eKPgmATs1EjohoBDMe1b3iPD64geBINmcSJhqkX1DB0MbhUpFKgDk4AyMvXJ8bjs";
         private readonly int _iteration = 5;
         public LoginHandler(IUserRepository userRepository, IMapper mapper, IPasswordHelper passwordHelper)
         {
