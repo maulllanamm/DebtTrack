@@ -33,4 +33,8 @@
     <ProjectReference Include="..\DebtTrack.Domain\DebtTrack.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
