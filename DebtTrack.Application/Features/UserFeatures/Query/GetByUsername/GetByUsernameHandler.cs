@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using DebtTrack.Application.Common.Exceptions;
-using DebtTrack.Application.Features.AuthFeatures.LoginFeatures;
 using DebtTrack.Application.Repositories;
 using MediatR;
 

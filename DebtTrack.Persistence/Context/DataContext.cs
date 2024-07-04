@@ -11,6 +11,7 @@ namespace DebtTrack.Persistence.Context
         public DbSet<Role> Roles { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +20,7 @@ namespace DebtTrack.Persistence.Context
             modelBuilder.Entity<Role>().ToTable("roles");
             modelBuilder.Entity<Permission>().ToTable("permissions");
             modelBuilder.Entity<RolePermission>().ToTable("role_permissions");
+            modelBuilder.Entity<Transaction>().ToTable("transactions");
 
             modelBuilder.Entity<RolePermission>()
             .HasKey(rp => new { rp.role_id, rp.permission_id });
@@ -32,9 +34,24 @@ namespace DebtTrack.Persistence.Context
                 .HasMany(p => p.role_permissions)
                 .WithOne(rp => rp.permission)
                 .HasForeignKey(rp => rp.permission_id);
-
+            
+            modelBuilder.Entity<Transaction>()
+                .Property("is_paid")
+                .HasDefaultValue(false);
+            
+            modelBuilder.Entity<Transaction>()
+                .HasOne<User>()
+                .WithMany()
+                .HasForeignKey(d => d.debtor_id);
+            
+            modelBuilder.Entity<Transaction>()
+                .HasOne<User>()
+                .WithMany()
+                .HasForeignKey(d => d.creditor_id);
+            
+            
             // Daftar entitas yang ingin dikonfigurasi
-            var entities = new[] { typeof(User)};
+            var entities = new[] { typeof(User), typeof(Transaction)};
             foreach (var entity in entities)
             {
                 modelBuilder.Entity(entity)

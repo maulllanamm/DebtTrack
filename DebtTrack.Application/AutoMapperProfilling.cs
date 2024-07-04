@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DebtTrack.Application.Features.AuthFeatures.LoginFeatures;
 using DebtTrack.Application.Features.AuthFeatures.RegisterFeatures;
+using DebtTrack.Application.Features.DebtFeatures.Command.CreateDebt;
 using DebtTrack.Application.Features.UserFeatures.Command.UpdateUser;
 using DebtTrack.Application.Features.UserFeatures.Query.GetAll;
 using DebtTrack.Application.Features.UserFeatures.Query.GetById;
@@ -33,6 +34,9 @@ namespace DebtTrack.Application
 
             CreateMap<LoginRequest, User>();
             CreateMap<User, LoginResponse>();
+            
+            CreateMap<CreateTransactionRequest, Transaction>();
+            CreateMap<Transaction, CreateTransactionResponse>();
         }
     }
 }
