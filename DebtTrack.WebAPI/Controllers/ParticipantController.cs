@@ -50,6 +50,12 @@ namespace DebtTrack.WebAPI.Controllers
             return Ok(result);
         }
 
-       
+        [HttpDelete]
+        public async Task<ActionResult<bool>> Delete(int participantId,
+            CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new DeleteParticipantRequest(participantId), cancellationToken);
+            return Ok(result);
+        }
     }
 }

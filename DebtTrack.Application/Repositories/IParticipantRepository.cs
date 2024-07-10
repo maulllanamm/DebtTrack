@@ -8,4 +8,5 @@ public interface IParticipantRepository
     public Task<Participant> GetById(int participantId);
     public Task<Participant> Create(Participant participant);
     public Task<Participant> Update(Participant participant);
+    public Task<bool> Delete(int participantId);
 }
