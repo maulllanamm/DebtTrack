@@ -38,6 +38,8 @@ namespace DebtTrack.Application
             
             CreateMap<CreateParticipantRequest, Participant>();
             CreateMap<Participant, CreateParticipantResponse>();
+
+            CreateMap<Participant, GetAllParticipantResponse>();
             
             CreateMap<CreateTransactionRequest, Transaction>();
             CreateMap<Transaction, CreateTransactionResponse>();
