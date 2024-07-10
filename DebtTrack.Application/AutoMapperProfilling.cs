@@ -2,6 +2,7 @@
 using DebtTrack.Application.Features.AuthFeatures.LoginFeatures;
 using DebtTrack.Application.Features.AuthFeatures.RegisterFeatures;
 using DebtTrack.Application.Features.DebtFeatures.Command.CreateDebt;
+using DebtTrack.Application.Features.ParticipantFeatures.Command;
 using DebtTrack.Application.Features.UserFeatures.Command.UpdateUser;
 using DebtTrack.Application.Features.UserFeatures.Query.GetAll;
 using DebtTrack.Application.Features.UserFeatures.Query.GetById;
@@ -33,7 +34,10 @@ namespace DebtTrack.Application
             CreateMap<User, RegisterResponse>();
 
             CreateMap<LoginRequest, User>();
-            CreateMap<User, LoginResponse>();
+            CreateMap<User, LoginResponse>();            
+            
+            CreateMap<CreateParticipantRequest, Participant>();
+            CreateMap<Participant, CreateParticipantResponse>();
             
             CreateMap<CreateTransactionRequest, Transaction>();
             CreateMap<Transaction, CreateTransactionResponse>();
