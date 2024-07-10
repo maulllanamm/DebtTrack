@@ -22,7 +22,7 @@ public class GetByIdParticipantHandler : IRequestHandler<GetByIdParticipantReque
         var res = await _participantRepository.GetById(request.ParticipantId);
         if (res is null)
         {
-            throw new NotFoundException($"User id {request.ParticipantId} not found");
+            throw new NotFoundException($"Participant id {request.ParticipantId} not found");
         }
         return _mapper.Map<GetByIdParticipantResponse>(res);
     }

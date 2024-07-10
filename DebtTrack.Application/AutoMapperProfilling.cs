@@ -35,12 +35,15 @@ namespace DebtTrack.Application
 
             CreateMap<LoginRequest, User>();
             CreateMap<User, LoginResponse>();            
-            
-            CreateMap<CreateParticipantRequest, Participant>();
-            CreateMap<Participant, CreateParticipantResponse>();
 
             CreateMap<Participant, GetAllParticipantResponse>();
             CreateMap<Participant, GetByIdParticipantResponse>();
+
+            CreateMap<CreateParticipantRequest, Participant>();
+            CreateMap<Participant, CreateParticipantResponse>();
+            
+            CreateMap<UpdateParticipantRequest, Participant>();
+            CreateMap<Participant, UpdateParticipantResponse>();
             
             CreateMap<CreateTransactionRequest, Transaction>();
             CreateMap<Transaction, CreateTransactionResponse>();
