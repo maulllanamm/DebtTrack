@@ -26,6 +26,13 @@ namespace DebtTrack.WebAPI.Controllers
             var result = await _mediator.Send(new GetAllParticipantRequest(), cancellationToken);
             return Ok(result);
         }
+        
+        [HttpGet]
+        public async Task<ActionResult<CreateParticipantResponse>> GetById(int participantId, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetByIdParticipantRequest(participantId), cancellationToken);
+            return Ok(result);
+        }
 
         [HttpPost]
         public async Task<ActionResult<CreateParticipantResponse>> Create(CreateParticipantRequest request,
