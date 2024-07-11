@@ -44,14 +44,14 @@ namespace DebtTrack.Persistence.Context
                 .HasDefaultValue(false);
             
             modelBuilder.Entity<Transaction>()
-                .HasOne<User>()
+                .HasOne<Activity>()
                 .WithMany()
-                .HasForeignKey(d => d.debtor_id);
+                .HasForeignKey(a => a.activity_id);
             
             modelBuilder.Entity<Transaction>()
-                .HasOne<User>()
+                .HasOne<Participant>()
                 .WithMany()
-                .HasForeignKey(d => d.creditor_id);
+                .HasForeignKey(p => p.participant_id);
             
             
             // Daftar entitas yang ingin dikonfigurasi

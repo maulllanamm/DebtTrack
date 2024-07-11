@@ -6,7 +6,7 @@ public class CreateTransactionValidation : AbstractValidator<CreateTransactionRe
 {
     public CreateTransactionValidation()
     {
-        RuleFor(x => x.Amount).NotEmpty();
-        RuleFor(x => x.Description).NotEmpty();
+        RuleFor(x => x.Amount).NotEmpty().WithMessage("Amount is required");
+        RuleFor(x => x.Description).NotEmpty().WithMessage("Description is required");
     }
 }

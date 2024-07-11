@@ -10,11 +10,11 @@ public class Transaction : BaseEntity
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public override int id { get; set; }
     
-    [ForeignKey("Debtor")]
-    public int debtor_id { get; set; }
+    [ForeignKey("Activity")]
+    public int activity_id { get; set; }
     
-    [ForeignKey("Creditor")]
-    public int creditor_id { get; set; }
+    [ForeignKey("Participant")]
+    public int participant_id { get; set; }
 
     public decimal amount { get; set; }
     public string description { get; set; }

@@ -19,7 +19,6 @@ namespace DebtTrack.WebAPI.Controllers
             _cacheHelper = cacheHelper;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult<CreateTransactionResponse>> Create(CreateTransactionRequest request,
            CancellationToken cancellationToken)

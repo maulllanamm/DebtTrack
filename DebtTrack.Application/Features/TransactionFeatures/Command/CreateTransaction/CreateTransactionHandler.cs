@@ -12,33 +12,32 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionRequest
 {
     private readonly IMapper _mapper;
     private readonly ITransactionRepository _transactionRepository;
-    private readonly IUserRepository _userRepository;
-    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IParticipantRepository _participantRepository;
+    private readonly IActivityRepository _activityRepository;
 
-    public CreateTransactionHandler(IMapper mapper, IUserRepository userRepository, ITransactionRepository transactionRepository, IHttpContextAccessor httpContextAccessor)
+    public CreateTransactionHandler(IMapper mapper,  ITransactionRepository transactionRepository, IParticipantRepository participantRepository, IActivityRepository activityRepository)
     {
         _mapper = mapper;
-        _userRepository = userRepository;
         _transactionRepository = transactionRepository;
-        _httpContextAccessor = httpContextAccessor;
+        _participantRepository = participantRepository;
+        _activityRepository = activityRepository;
     }
 
     public async Task<CreateTransactionResponse> Handle(CreateTransactionRequest request,
         CancellationToken cancellationToken)
     {
-        var username = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name)?.Value;
         var transaction = _mapper.Map<Transaction>(request);
 
-        var userDebetor = await _userRepository.GetByUsername(username);
-        var userReceivables = await _userRepository.GetById(request.CreditorId);
-
-        if (userDebetor.id != request.DebtorId)
+        var activity = await _activityRepository.GetById(request.ActivityId);
+        if (activity is null)
         {
-            throw new NotFoundException($"Debtor Not Found");
+            throw new NotFoundException($"Activity {request.ActivityId} not found");
         }
-        if (userReceivables == null)
+        var participant = await _participantRepository.GetById(request.ParticipantId);
+
+        if (participant == null)
         {
-            throw new NotFoundException($"Receivables Not Found");
+            throw new NotFoundException($"Participant Not Found");
         }
 
         var res = await _transactionRepository.Create(transaction);

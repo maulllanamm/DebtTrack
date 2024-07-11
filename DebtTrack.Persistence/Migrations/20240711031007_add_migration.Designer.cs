@@ -3,6 +3,7 @@ using System;
 using DebtTrack.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DebtTrack.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240711031007_add_migration")]
+    partial class add_migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -364,13 +366,13 @@ namespace DebtTrack.Persistence.Migrations
 
             modelBuilder.Entity("DebtTrack.Domain.Entities.Transaction", b =>
                 {
-                    b.HasOne("DebtTrack.Domain.Entities.Activity", null)
+                    b.HasOne("DebtTrack.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("activity_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DebtTrack.Domain.Entities.Participant", null)
+                    b.HasOne("DebtTrack.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("participant_id")
                         .OnDelete(DeleteBehavior.Cascade)

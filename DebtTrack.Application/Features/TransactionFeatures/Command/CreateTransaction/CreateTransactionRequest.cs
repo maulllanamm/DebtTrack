@@ -4,8 +4,8 @@ namespace DebtTrack.Application.Features.DebtFeatures.Command.CreateDebt;
 
 public sealed record CreateTransactionRequest
 (
-    int DebtorId,
-    int CreditorId,
+    int ActivityId,
+    int ParticipantId,
     decimal Amount,
     string Description
 ) : IRequest<CreateTransactionResponse>;
