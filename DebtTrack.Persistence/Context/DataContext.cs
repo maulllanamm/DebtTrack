@@ -12,6 +12,7 @@ namespace DebtTrack.Persistence.Context
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
         public DbSet<Participant> Participants { get; set; }
+        public DbSet<Activity> Activities { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +23,7 @@ namespace DebtTrack.Persistence.Context
             modelBuilder.Entity<Permission>().ToTable("permissions");
             modelBuilder.Entity<RolePermission>().ToTable("role_permissions");
             modelBuilder.Entity<Participant>().ToTable("participants");
+            modelBuilder.Entity<Activity>().ToTable("activities");
             modelBuilder.Entity<Transaction>().ToTable("transactions");
 
             modelBuilder.Entity<RolePermission>()
@@ -53,7 +55,7 @@ namespace DebtTrack.Persistence.Context
             
             
             // Daftar entitas yang ingin dikonfigurasi
-            var entities = new[] { typeof(User), typeof(Transaction), typeof(Participant)};
+            var entities = new[] { typeof(User), typeof(Transaction), typeof(Participant), typeof(Activity)};
             foreach (var entity in entities)
             {
                 modelBuilder.Entity(entity)

@@ -17,6 +17,7 @@ namespace DebtTrack.Persistence
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IParticipantRepository, ParticipantRepository>();
+            services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
         }
     }

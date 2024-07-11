@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DebtTrack.Application.Features.ActivityFeatures.Command;
 using DebtTrack.Application.Features.AuthFeatures.LoginFeatures;
 using DebtTrack.Application.Features.AuthFeatures.RegisterFeatures;
 using DebtTrack.Application.Features.DebtFeatures.Command.CreateDebt;
@@ -44,6 +45,9 @@ namespace DebtTrack.Application
             
             CreateMap<UpdateParticipantRequest, Participant>();
             CreateMap<Participant, UpdateParticipantResponse>();
+            
+            CreateMap<CreateActivityRequest, Activity>();
+            CreateMap<Activity, CreateActivityResponse>();
             
             CreateMap<CreateTransactionRequest, Transaction>();
             CreateMap<Transaction, CreateTransactionResponse>();
