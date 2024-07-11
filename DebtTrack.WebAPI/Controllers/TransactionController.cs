@@ -25,15 +25,21 @@ namespace DebtTrack.WebAPI.Controllers
             var result = await _mediator.Send(new GetByActivityIdRequest(activityId), cancellationToken);
             return Ok(result);
         }
-
+        
         [HttpPost]
         public async Task<ActionResult<CreateTransactionResponse>> Create(CreateTransactionRequest request,
-           CancellationToken cancellationToken)
+            CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(request, cancellationToken);
             return Ok(result);
         }
-
-       
+        
+        [HttpPut]
+        public async Task<ActionResult<CalculateTotalAmountToBePaidResponse>> CalculateTotalAmountToBePaid(int request,
+            CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new CalculateTotalAmountToBePaidRequest(request), cancellationToken);
+            return Ok(result);
+        }
     }
 }

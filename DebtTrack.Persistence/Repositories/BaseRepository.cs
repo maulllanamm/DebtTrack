@@ -173,6 +173,7 @@ namespace DebtTrack.Persistence.Repositories
                     unitOfWork.BeginTransaction();
                     foreach (var entity in entities)
                     {
+                        _context.Set<TEntity>().Attach(entity);
                         _context.Entry(entity).State = EntityState.Modified;
                     }
                     await _context.SaveChangesAsync();
