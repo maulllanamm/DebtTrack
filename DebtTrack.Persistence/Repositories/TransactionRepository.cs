@@ -12,6 +12,6 @@ public class TransactionRepository : BaseRepository<Transaction>, ITransactionRe
     }
     public async Task<List<Transaction>> GetByActivityId(int activityId)
     {
-        return await _context.Transactions.Where(x => x.activity_id == activityId).ToListAsync();
+        return await _context.Transactions.Where(x => x.activity_id == activityId && x.is_deleted == false).ToListAsync();
     }
 }
