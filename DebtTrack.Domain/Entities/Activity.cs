@@ -13,8 +13,8 @@ namespace DebtTrack.Domain.Entities
         public string place { get; set; }
         public string debtor { get; set; }
         public DateTimeOffset activity_date { get; set; }
-        public double bill{ get; set; }
-        public double tax{ get; set; }
-        public double total_bill{ get; set; }
+        public decimal bill{ get; set; }
+        public decimal tax{ get; set; }
+        public decimal total_bill{ get; set; }
     }
 }
