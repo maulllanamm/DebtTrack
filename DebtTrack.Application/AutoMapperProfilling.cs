@@ -46,6 +46,8 @@ namespace DebtTrack.Application
             CreateMap<UpdateParticipantRequest, Participant>();
             CreateMap<Participant, UpdateParticipantResponse>();
             
+            CreateMap<Activity, GetByIdActivityResponse>();
+ 
             CreateMap<CreateActivityRequest, Activity>();
             CreateMap<Activity, CreateActivityResponse>();
             

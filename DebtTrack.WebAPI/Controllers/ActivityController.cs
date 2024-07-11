@@ -18,7 +18,12 @@ namespace DebtTrack.WebAPI.Controllers
             _cacheHelper = cacheHelper;
         }
         
-        
+        [HttpGet]
+        public async Task<ActionResult<GetByIdActivityResponse>> GetById(int participantId, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetByIdActivityRequest(participantId), cancellationToken);
+            return Ok(result);
+        }
 
         [HttpPost]
         public async Task<ActionResult<CreateActivityResponse>> Create(CreateActivityRequest request,
