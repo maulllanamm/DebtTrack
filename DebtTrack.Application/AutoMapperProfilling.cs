@@ -55,6 +55,7 @@ namespace DebtTrack.Application
             CreateMap<Transaction, CreateTransactionResponse>();
             
             CreateMap<Transaction, GetByActivityIdResponse>();
+            CreateMap<Transaction, GetAllTransactionResponse>();
             CreateMap<Transaction, CalculateTotalAmountToBePaidResponse>();
         }
     }

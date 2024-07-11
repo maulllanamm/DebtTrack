@@ -1,5 +1,6 @@
 using DebtTrack.Application.Features.ActivityFeatures.Command;
 using DebtTrack.Application.Features.DebtFeatures.Command.CreateDebt;
+using DebtTrack.Application.Features.ParticipantFeatures.Command;
 using DebtTrack.Application.Helper.Interface;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,13 @@ namespace DebtTrack.WebAPI.Controllers
         {
             _mediator = mediator;
             _cacheHelper = cacheHelper;
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<GetAllTransactionResponse>> GetAll(CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetAllTransactionRequest(), cancellationToken);
+            return Ok(result);
         }
         
         [HttpGet]

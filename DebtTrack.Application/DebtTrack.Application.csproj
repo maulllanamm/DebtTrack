@@ -24,8 +24,4 @@
     <ProjectReference Include="..\DebtTrack.Domain\DebtTrack.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\TransactionFeatures\Query\GetAllTransaction\" />
-  </ItemGroup>
-
 </Project>
