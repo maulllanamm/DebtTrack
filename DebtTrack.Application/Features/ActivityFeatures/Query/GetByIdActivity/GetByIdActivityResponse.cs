@@ -2,8 +2,17 @@ namespace DebtTrack.Application.Features.ActivityFeatures.Command;
 
 public sealed record GetByIdActivityResponse
     (
-        string Nama,
-        string Divisi,
-        string Panggilan
+        string Activity,
+        string Place,
+        string Debtor,
+        DateTimeOffset ActivityDate,
+        decimal Bill,
+        decimal Tax,
+        decimal TotalBill,
+        bool? IsDeleted,
+        DateTimeOffset? CreatedDate,
+        string CreatedBy ,
+        DateTimeOffset? ModifiedDate,
+        string ModifiedBy 
     );
     
