@@ -17,6 +17,7 @@ public class Transaction : BaseEntity
     public int participant_id { get; set; }
 
     public decimal amount { get; set; }
+    public decimal? total_amount_to_be_paid { get; set; }
     public string description { get; set; }
     
     public bool is_paid  { get; set; }
