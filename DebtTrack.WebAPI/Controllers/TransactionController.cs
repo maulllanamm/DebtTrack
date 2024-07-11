@@ -28,7 +28,7 @@ namespace DebtTrack.WebAPI.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<GetByActivityIdResponse>> GetById(int activityId, CancellationToken cancellationToken)
+        public async Task<ActionResult<GetByActivityIdResponse>> GetByActivityId(int activityId, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetByActivityIdRequest(activityId), cancellationToken);
             return Ok(result);
@@ -43,10 +43,10 @@ namespace DebtTrack.WebAPI.Controllers
         }
         
         [HttpPut]
-        public async Task<ActionResult<CalculateTotalAmountToBePaidResponse>> CalculateTotalAmountToBePaid(int request,
+        public async Task<ActionResult<CalculateTotalAmountToBePaidResponse>> CalculateTotalAmountToBePaid(int activityId,
             CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new CalculateTotalAmountToBePaidRequest(request), cancellationToken);
+            var result = await _mediator.Send(new CalculateTotalAmountToBePaidRequest(activityId), cancellationToken);
             return Ok(result);
         }
     }
